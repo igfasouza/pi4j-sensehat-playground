@@ -2,11 +2,11 @@
 
 //JAVA 25
 
-//DEPS com.pi4j:pi4j-core:4.0.0
-//DEPS com.pi4j:pi4j-plugin-raspberrypi:4.0.0
-//DEPS com.pi4j:pi4j-plugin-linuxfs:4.0.0
-//DEPS com.pi4j:pi4j-library-pigpio:4.0.0
-//DEPS io.github.pi4j:pi4j-drivers:1.0.0
+//REPOS mavencentral,mavensnapshot=https://central.sonatype.com/repository/maven-snapshots/
+
+//DEPS com.pi4j:pi4j-core:5.0.0-SNAPSHOT
+//DEPS com.pi4j:pi4j-plugin-ffm:5.0.0-SNAPSHOT
+//DEPS com.pi4j:pi4j-drivers:1.1.0
 
 import com.pi4j.Pi4J;
 import com.pi4j.drivers.hat.raspberry.SenseHat;
