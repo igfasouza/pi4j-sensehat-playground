@@ -1,15 +1,11 @@
-name: Deploy Roq site to GitHub Pages
+name: Roq Site Deploy
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
+# Cancel any older run of the same workflow that is still in progress
 concurrency:
   group: pages
   cancel-in-progress: true
@@ -17,29 +13,42 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v5
 
-      - uses: actions/setup-java@v4
+      - name: Set up JDK 25
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '25'
-          cache: maven
 
-      - name: Build site with Roq
-        run: ./mvnw -B package -DskipTests -Dquarkus.roq.generator.batch=true
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Cache Maven repository
+        uses: actions/cache@v5
         with:
-          path: target/roq
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Generate Roq Site
+        uses: quarkiverse/quarkus-roq@v1.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
     steps:
-      - id: deploy
-        uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
