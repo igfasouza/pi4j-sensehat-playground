@@ -2,17 +2,6 @@
 
 <meta charset="utf-8">
 
-<!-- Prevent flash of unstyled content for dark mode -->
-<script>
-  const savedTheme = localStorage.getItem('darkMode');
-  const isDark = savedTheme !== null
-    ? savedTheme === 'true'
-    : window.matchMedia('(prefers-color-scheme: dark)').matches;
-  if (isDark) {
-    document.documentElement.classList.add('dark');
-  }
-</script>
-
 {#seo page site /}
 {#if page.data.robots??}
 <meta name="robots" content="{page.data.robots}">
