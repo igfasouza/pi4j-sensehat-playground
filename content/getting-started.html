@@ -1,0 +1,121 @@
+---
+title: Getting Started
+description: Everything you need to understand and start using the Raspberry Pi Sense HAT with Pi4J — hardware, software, docs, Astro Pi and community resources.
+layout: roq-default/default
+permalink: /getting-started/
+bodyClass: post-page
+---
+
+<div class="post-back">
+  <a href="{site.url}" class="post-back-link">← Home</a>
+</div>
+
+<article class="article-page">
+  <section class="page-content">
+    <section class="wrap-content">
+      {#include partials/roq-default/page-header.html /}
+
+      <p><img src="/Pi4J-Sense-HAT-Playground/images/posts/getting-started.png" alt="Getting Started with the Raspberry Pi Sense HAT" /></p>
+
+      <section class="content-prose">
+        <h2>What is the Sense HAT?</h2>
+        <p>
+          The <strong>Raspberry Pi Sense HAT</strong> is an add-on board originally designed for the
+          <a href="https://astro-pi.org/" target="_blank" rel="noopener noreferrer">Astro Pi</a> mission —
+          Raspberry Pi computers running on board the International Space Station. It includes:
+        </p>
+        <ul>
+          <li>An 8×8 RGB LED matrix</li>
+          <li>A 5-button mini joystick</li>
+          <li>Sensors for temperature, humidity, pressure</li>
+          <li>An inertial measurement unit (IMU): accelerometer, gyroscope, magnetometer</li>
+        </ul>
+        <p>
+          There are two versions of the board: the original <strong>Sense HAT</strong> and the newer
+          <strong>Sense HAT v2</strong>, which uses different sensor chips.
+        </p>
+        <ul>
+          <li><a href="https://www.raspberrypi.com/products/sense-hat/" target="_blank" rel="noopener noreferrer">Sense HAT product page</a></li>
+          <li><a href="https://www.raspberrypi.com/documentation/accessories/sense-hat.html" target="_blank" rel="noopener noreferrer">Sense HAT official documentation</a></li>
+          <li><a href="https://dev.to/igoriot/what-is-a-raspberry-pi-hat-1c8d" target="_blank" rel="noopener noreferrer">What is a Raspberry Pi HAT? (dev.to)</a></li>
+          <li><a href="https://dev.to/igoriot/introduction-to-the-raspberry-pi-sense-hat-4lfg" target="_blank" rel="noopener noreferrer">Introduction to the Raspberry Pi Sense HAT (dev.to)</a></li>
+        </ul>
+
+        <h2>What is Pi4J?</h2>
+        <p>
+          <a href="https://pi4j.com/" target="_blank" rel="noopener noreferrer">Pi4J</a> is a friendly
+          Java library for accessing GPIO, I²C, SPI, PWM and other low-level interfaces on the
+          Raspberry Pi. It lets you talk to hardware like the Sense HAT from a normal Java application.
+        </p>
+        <ul>
+          <li><a href="https://pi4j.com/getting-started/" target="_blank" rel="noopener noreferrer">Pi4J — Getting Started</a></li>
+          <li><a href="https://pi4j.com/documentation/" target="_blank" rel="noopener noreferrer">Pi4J Documentation</a></li>
+          <li><a href="https://github.com/Pi4J/pi4j-v2" target="_blank" rel="noopener noreferrer">Pi4J on GitHub</a></li>
+          <li><a href="https://github.com/Pi4J/pi4j-drivers" target="_blank" rel="noopener noreferrer">pi4j-drivers — device drivers including Sense HAT</a></li>
+        </ul>
+
+        <h2>Hardware setup</h2>
+        <ol>
+          <li>Plug the Sense HAT onto the 40-pin GPIO header of your Raspberry Pi.</li>
+          <li>Boot Raspberry Pi OS (a recent 64-bit release is recommended).</li>
+          <li>Enable <strong>I²C</strong> in <code>raspi-config</code> → <em>Interface Options</em>.</li>
+          <li>Verify the board is detected: <code>i2cdetect -y 1</code>.</li>
+        </ol>
+
+        <h2>Software prerequisites</h2>
+        <ul>
+          <li><strong>Java 21+</strong> (Java 25 is used by several examples here).</li>
+          <li><a href="https://www.jbang.dev/" target="_blank" rel="noopener noreferrer">JBang</a> — the easiest way to run the single-file Java examples in this repo.</li>
+          <li><a href="https://maven.apache.org/" target="_blank" rel="noopener noreferrer">Maven</a> — if you want to build the full project or install <code>pi4j-drivers</code> locally.</li>
+        </ul>
+
+        <h2>Your first Sense HAT program with Pi4J</h2>
+        <p>
+          The simplest way to try Pi4J with the Sense HAT is via the <code>SenseHat</code> driver
+          shipped with <code>pi4j-drivers</code>. A minimal JBang script looks like:
+        </p>
+<pre><code>///usr/bin/env jbang "$0" "$@" ; exit $?
+//JAVA 21
+//DEPS com.pi4j:pi4j-core:5.0.0-SNAPSHOT
+//DEPS com.pi4j:pi4j-plugin-ffm:5.0.0-SNAPSHOT
+//DEPS com.pi4j:pi4j-drivers-igfasouza:1.1.1-SNAPSHOT
+
+import com.pi4j.Pi4J;
+import com.pi4j.drivers.hat.raspberry.SenseHat;
+
+public class Hello {
+    public static void main(String[] args) {
+        var pi4j = Pi4J.newAutoContext();
+        var hat  = new SenseHat(pi4j);
+        hat.getLedMatrix().setPixel(0, 0, 0xFF0000);
+    }
+}
+</code></pre>
+        <p>
+          Run it on the Pi with <code>jbang Hello.java</code>. Browse the
+          <a href="{site.url('/posts/')}">projects</a> for more complete examples.
+        </p>
+
+        <h2>Astro Pi</h2>
+        <p>
+          <a href="https://astro-pi.org/" target="_blank" rel="noopener noreferrer">Astro Pi</a> is a
+          joint programme between the Raspberry Pi Foundation and the European Space Agency (ESA) that
+          lets young people run their code on Raspberry Pi computers aboard the International Space
+          Station. The Sense HAT is the primary hardware they interact with.
+        </p>
+        <ul>
+          <li><a href="https://astro-pi.org/mission-zero" target="_blank" rel="noopener noreferrer">Mission Zero</a> — write a short program that runs on the ISS.</li>
+          <li><a href="https://astro-pi.org/mission-space-lab" target="_blank" rel="noopener noreferrer">Mission Space Lab</a> — run a scientific experiment in space.</li>
+          <li><a href="https://projects.raspberrypi.org/en/projects?hardware%5B%5D=sense-hat" target="_blank" rel="noopener noreferrer">Sense HAT projects on the Raspberry Pi Foundation site</a>.</li>
+        </ul>
+
+        <h2>Community &amp; further reading</h2>
+        <ul>
+          <li><a href="https://forum.pi4j.com/" target="_blank" rel="noopener noreferrer">Pi4J community forum</a></li>
+          <li><a href="https://forums.raspberrypi.com/" target="_blank" rel="noopener noreferrer">Raspberry Pi forums</a></li>
+          <li><a href="https://github.com/igfasouza/Pi4J-Sense-HAT-Playground" target="_blank" rel="noopener noreferrer">This project on GitHub</a> — contributions welcome!</li>
+        </ul>
+      </section>
+    </section>
+  </section>
+</article>
