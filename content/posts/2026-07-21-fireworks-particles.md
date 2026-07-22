@@ -10,8 +10,10 @@ tags:
 - Sense HAT
 - Raspberry Pi
 description: A physics-based fireworks simulation for the Raspberry Pi Sense HAT 8x8 LED matrix using Pi4J, with individual particles, gravity and color fade.
+image: posts/fireworks-particles.png
 ---
 
+![](/Pi4J-Sense-HAT-Playground/images/posts/fireworks-particles.png)
 
 `FireworksParticles` is a more elaborate take on the [classic fireworks](/Pi4J-Sense-HAT-Playground/posts/fireworks/) demo. Instead of drawing a fixed geometric shape at each explosion, this version runs a small particle system with per-frame physics.
 

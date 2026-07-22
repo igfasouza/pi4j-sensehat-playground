@@ -10,7 +10,9 @@ tags:
 - Sense HAT
 - Raspberry Pi
 description: Scroll a message on the Sense HAT LED matrix in both directions and cycle through the four rotations of the display.
+image: posts/scroll-rotate.jpg
 ---
+
 
 `ScrollRotate` extends the basic `Hello` example by also demonstrating the two scroll directions and the four rotations supported by the Sense HAT LED matrix.
 

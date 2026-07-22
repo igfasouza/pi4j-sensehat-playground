@@ -10,6 +10,7 @@ tags:
 - Sense HAT
 - Raspberry Pi
 description: A small Java program that simulates fireworks on the Raspberry Pi Sense HAT 8x8 LED matrix using Pi4J and a simple geometric pattern.
+image: posts/fireworks.png
 ---
 
 
