@@ -16,7 +16,7 @@ image: posts/scroll-rotate.jpg
 
 `ScrollRotate` extends the basic `Hello` example by also demonstrating the two scroll directions and the four rotations supported by the Sense HAT LED matrix.
 
-Source code: [projects/ScrollRotate/ScrollRotate.java](https://github.com/igfasouza/Pi4J-Sense-HAT-Playground/blob/main/projects/ScrollRotate/ScrollRotate.java)
+Source code: [projects/ScrollRotate/ScrollRotate.java](https://github.com/igfasouza/pi4j-sensehat-playground/blob/main/projects/ScrollRotate/ScrollRotate.java)
 
 ## How it works
 

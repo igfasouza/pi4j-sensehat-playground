@@ -17,7 +17,7 @@ image: posts/approx-temp.png
 
 `ApproxTemp` shows a well-known trick for the Sense HAT: the two on-board sensors that report temperature (HTS221 and LPS25H) both sit next to the Raspberry Pi's SoC, so they read hotter than the room. This script averages them and subtracts a calibration offset to get a value that is much closer to reality.
 
-Source code: [projects/ApproxTemp/ApproxTemp.java](https://github.com/igfasouza/Pi4J-Sense-HAT-Playground/blob/main/projects/ApproxTemp/ApproxTemp.java)
+Source code: [projects/ApproxTemp/ApproxTemp.java](https://github.com/igfasouza/pi4j-sensehat-playground/blob/main/projects/ApproxTemp/ApproxTemp.java)
 
 ## How it works
 

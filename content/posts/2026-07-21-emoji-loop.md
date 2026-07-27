@@ -16,7 +16,7 @@ image: posts/emoji-loop.png
 
 `EmojiLoop` is a small pixel-art slideshow for the Sense HAT LED matrix. It cycles through five 8×8 icons — a smiley, a heart, a skull, a Space Invader-style alien and an up arrow — every 3 seconds.
 
-Source code: [projects/EmojiLoop/EmojiLoop.java](https://github.com/igfasouza/Pi4J-Sense-HAT-Playground/blob/main/projects/EmojiLoop/EmojiLoop.java)
+Source code: [projects/EmojiLoop/EmojiLoop.java](https://github.com/igfasouza/pi4j-sensehat-playground/blob/main/projects/EmojiLoop/EmojiLoop.java)
 
 ## How it works
 

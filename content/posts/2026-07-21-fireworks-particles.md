@@ -13,11 +13,11 @@ description: A physics-based fireworks simulation for the Raspberry Pi Sense HAT
 image: posts/fireworks-particles.png
 ---
 
-![](/Pi4J-Sense-HAT-Playground/images/posts/fireworks-particles.png)
+![](/pi4j-sensehat-playground/images/posts/fireworks-particles.png)
 
-`FireworksParticles` is a more elaborate take on the [classic fireworks](/Pi4J-Sense-HAT-Playground/posts/fireworks/) demo. Instead of drawing a fixed geometric shape at each explosion, this version runs a small particle system with per-frame physics.
+`FireworksParticles` is a more elaborate take on the [classic fireworks](/pi4j-sensehat-playground/posts/fireworks/) demo. Instead of drawing a fixed geometric shape at each explosion, this version runs a small particle system with per-frame physics.
 
-Source code: [projects/FireworksParticles/FireworksParticles.java](https://github.com/igfasouza/Pi4J-Sense-HAT-Playground/blob/main/projects/FireworksParticles/FireworksParticles.java)
+Source code: [projects/FireworksParticles/FireworksParticles.java](https://github.com/igfasouza/pi4j-sensehat-playground/blob/main/projects/FireworksParticles/FireworksParticles.java)
 
 ## How it works
 

@@ -1,8 +1,8 @@
-# Pi4J Sense HAT Playground
+# pi4j sensehat playground
 
 > A community-driven collection of Java examples, educational resources, Astro Pi references, and practical projects for the Raspberry Pi Sense HAT using Pi4J.
 
-The **Pi4J Sense HAT Playground** is an open-source community project that aims to become a central hub for everything related to the **Raspberry Pi Sense HAT** and **Pi4J**.
+The **pi4j sensehat playground** is an open-source community project that aims to become a central hub for everything related to the **Raspberry Pi Sense HAT** and **Pi4J**.
 
 Whether you're an educator, student, maker, or Java developer, this repository provides resources to help you explore the full potential of the Sense HAT while building applications with Java.
 
@@ -29,7 +29,7 @@ This repository aims to bridge that gap by collecting resources focused on:
 
 ## 🌐 Site
 
-- 🏠 [https://igfasouza.github.io/Pi4J-Sense-HAT-Playground/](https://igfasouza.github.io/Pi4J-Sense-HAT-Playground/)
+- 🏠 [https://igfasouza.github.io/pi4j-sensehat-playground/](https://igfasouza.github.io/pi4j-sensehat-playground/)
 
 
 ---

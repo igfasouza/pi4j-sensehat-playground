@@ -17,7 +17,7 @@ image: posts/accelerometer.png
 
 `Accelerometer` uses the Sense HAT's IMU (inertial measurement unit) to move a green pixel around the 8×8 LED matrix. Tilt the Raspberry Pi and the pixel drifts in that direction — a bit like an analog level.
 
-Source code: [projects/Accelerometer/Accelerometer.java](https://github.com/igfasouza/Pi4J-Sense-HAT-Playground/blob/main/projects/Accelerometer/Accelerometer.java)
+Source code: [projects/Accelerometer/Accelerometer.java](https://github.com/igfasouza/pi4j-sensehat-playground/blob/main/projects/Accelerometer/Accelerometer.java)
 
 ## How it works
 
@@ -30,7 +30,7 @@ Every iteration of the main loop:
 3. If the tilt is large enough, updates the pixel position using `Math.floorMod` — the pixel wraps around from one edge to the opposite one.
 4. Redraws the pixel in green and sleeps 200 ms.
 
-For a version that uses the gyroscope instead of the accelerometer, see the [Spin](/Pi4J-Sense-HAT-Playground/posts/spin/) example.
+For a version that uses the gyroscope instead of the accelerometer, see the [Spin](/pi4j-sensehat-playground/posts/spin/) example.
 
 ## Running it
 

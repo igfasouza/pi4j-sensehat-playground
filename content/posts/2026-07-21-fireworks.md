@@ -16,7 +16,7 @@ image: posts/fireworks.png
 
 `Fireworks` is a small [JBang](https://www.jbang.dev/) script that animates fireworks on the Raspberry Pi Sense HAT 8x8 LED matrix using [Pi4J](https://pi4j.com/), using a simple geometric explosion pattern.
 
-Source code: [projects/Fireworks/Fireworks.java](https://github.com/igfasouza/Pi4J-Sense-HAT-Playground/blob/main/projects/Fireworks/Fireworks.java)
+Source code: [projects/Fireworks/Fireworks.java](https://github.com/igfasouza/pi4j-sensehat-playground/blob/main/projects/Fireworks/Fireworks.java)
 
 ## How it works
 
@@ -28,7 +28,7 @@ The program runs an endless loop, and each iteration draws one firework in three
 
 The `pixel()` helper clamps drawing to the 8x8 bounds so explosions near the edges don't throw errors.
 
-For a physics-based version with individual particles and gravity, see the [particle fireworks](/Pi4J-Sense-HAT-Playground/posts/fireworks-particles/) post.
+For a physics-based version with individual particles and gravity, see the [particle fireworks](/pi4j-sensehat-playground/posts/fireworks-particles/) post.
 
 ## Running it
 
