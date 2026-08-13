@@ -2,7 +2,7 @@
 //JAVA 25
 //DEPS com.pi4j:pi4j-core:4.0.1
 //DEPS com.pi4j:pi4j-plugin-ffm:4.0.1
-//DEPS com.pi4j:pi4j-drivers:1.1.1-SNAPSHOT
+//DEPS com.pi4j:pi4j-drivers-igfasouza:1.1.1-SNAPSHOT
 //REPOS mavencentral,mavenlocal,sonatype-snapshots=https://s01.oss.sonatype.org/content/repositories/snapshots/
 
 import com.pi4j.Pi4J;
