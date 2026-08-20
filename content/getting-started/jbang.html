@@ -1,0 +1,95 @@
+---
+title: JBang
+description: The single-file Java runner every example in this playground uses to bootstrap dependencies and run without a build step.
+layout: roq-default/default
+permalink: /getting-started/jbang/
+bodyClass: post-page
+---
+
+<div class="post-back">
+  <a href="{site.url('/getting-started/')}" class="post-back-link">← Getting Started</a>
+  <a href="{site.url}" class="post-back-link">← Home</a>
+</div>
+
+<article class="article-page">
+  <section class="page-content">
+    <section class="wrap-content">
+      {#include partials/roq-default/page-header.html /}
+
+      <section class="content-prose">
+        <h2>What is JBang?</h2>
+        <p>
+          <a href="https://www.jbang.dev/" target="_blank" rel="noopener noreferrer">JBang</a> lets you
+          run a Java source file the same way you'd run a shell script — no
+          <code>pom.xml</code>, no <code>build.gradle</code>, no compile step. Dependencies are declared
+          in comments at the top of the file, and JBang fetches them, compiles the file and runs it.
+          That's the entire loop.
+        </p>
+
+        <h2>Why every example uses it</h2>
+        <p>
+          Every project in this playground is a single <code>.java</code> file that starts with a JBang
+          preamble. That means you can clone the repo, plug in a Sense HAT and run any example with a
+          single command — no IDE, no Maven download, no <code>target/</code> directory.
+        </p>
+<pre><code>jbang projects/Dice/Dice.java
+</code></pre>
+
+        <h2>Anatomy of a JBang script</h2>
+        <p>
+          The preamble at the top of each example does three things: declares the Java version, lists
+          Maven dependencies, and points JBang at the repositories those dependencies live in.
+        </p>
+<pre><code>///usr/bin/env jbang "$0" "$@" ; exit $?
+//JAVA 25
+//DEPS com.pi4j:pi4j-core:4.0.1
+//DEPS com.pi4j:pi4j-plugin-ffm:4.0.1
+//DEPS com.pi4j:pi4j-drivers-igfasouza:1.1.1-SNAPSHOT
+//REPOS mavencentral,mavenlocal,sonatype-snapshots=https://s01.oss.sonatype.org/content/repositories/snapshots/
+
+import com.pi4j.Pi4J;
+import com.pi4j.drivers.hat.raspberry.SenseHat;
+
+public class Hello {
+    public static void main(String[] args) {
+        var pi4j = Pi4J.newAutoContext();
+        var hat  = new SenseHat(pi4j);
+        hat.setPixel(0, 0, 0xFF0000);
+    }
+}
+</code></pre>
+        <p>
+          The <code>///usr/bin/env jbang</code> shebang on the first line lets you mark the file
+          executable and run it directly (<code>./Hello.java</code>) on Linux and macOS.
+        </p>
+
+        <h2>Installing JBang</h2>
+        <p>
+          On the Raspberry Pi (and pretty much everywhere else):
+        </p>
+<pre><code>curl -Ls https://sh.jbang.dev | bash -s - app setup
+</code></pre>
+        <p>
+          Or via a package manager — <code>sdkman</code>, <code>brew</code>, <code>choco</code>,
+          <code>apt</code> — all listed on the JBang site. JBang installs its own JDK on first use if
+          one isn't available, which keeps the on-device setup minimal.
+        </p>
+
+        <h2>Handy commands</h2>
+        <ul>
+          <li><code>jbang Foo.java</code> — run a script.</li>
+          <li><code>jbang --edit Foo.java</code> — open the script in an IDE with dependencies wired up.</li>
+          <li><code>jbang app install --name foo Foo.java</code> — install the script as a system-wide command called <code>foo</code>.</li>
+          <li><code>jbang cache clear</code> — nuke the local cache when a SNAPSHOT gets stuck.</li>
+        </ul>
+
+        <h2>Links</h2>
+        <ul>
+          <li><a href="https://www.jbang.dev/" target="_blank" rel="noopener noreferrer">JBang — home</a></li>
+          <li><a href="https://www.jbang.dev/documentation/guide/latest/index.html" target="_blank" rel="noopener noreferrer">JBang documentation</a></li>
+          <li><a href="https://github.com/jbangdev/jbang" target="_blank" rel="noopener noreferrer">JBang on GitHub</a></li>
+        </ul>
+      </section>
+    </section>
+  </section>
+</article>

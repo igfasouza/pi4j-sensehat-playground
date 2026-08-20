@@ -1,0 +1,74 @@
+---
+title: Sense HAT
+description: The Raspberry Pi Sense HAT — the board itself, its sensors, and the Raspberry Pi it plugs into.
+layout: roq-default/default
+permalink: /getting-started/sensehat/
+bodyClass: post-page
+---
+
+<div class="post-back">
+  <a href="{site.url('/getting-started/')}" class="post-back-link">← Getting Started</a>
+  <a href="{site.url}" class="post-back-link">← Home</a>
+</div>
+
+<article class="article-page">
+  <section class="page-content">
+    <section class="wrap-content">
+      {#include partials/roq-default/page-header.html /}
+
+      <section class="content-prose">
+        <h2>What is the Sense HAT?</h2>
+        <p>
+          The <strong>Raspberry Pi Sense HAT</strong> is an add-on board originally designed for the
+          <a href="https://astro-pi.org/" target="_blank" rel="noopener noreferrer">Astro Pi</a> mission —
+          Raspberry Pi computers running on board the International Space Station. It packs a small
+          weather station, an inertial measurement unit and a colourful LED display into a single board
+          that clips onto the 40-pin header.
+        </p>
+        <ul>
+          <li>An 8×8 RGB LED matrix</li>
+          <li>A 5-button mini joystick</li>
+          <li>Sensors for temperature, humidity and pressure</li>
+          <li>An inertial measurement unit (IMU): accelerometer, gyroscope, magnetometer</li>
+          <li>A colour/light sensor (Sense HAT v2 only)</li>
+        </ul>
+
+        <h2>Versions</h2>
+        <p>
+          There are two revisions of the board. The original <strong>Sense HAT</strong> uses the
+          HTS221, LPS25H and LSM9DS1 sensor set. The newer <strong>Sense HAT v2</strong> uses different
+          chips (SHTC3, LPS22HH, ICM-20948) and adds a TCS3400 colour sensor. Most examples in this
+          playground work on both — the driver detects the version at boot.
+        </p>
+
+        <h2>Hardware setup</h2>
+        <ol>
+          <li>Power the Raspberry Pi down and plug the Sense HAT onto the 40-pin GPIO header.</li>
+          <li>Boot Raspberry Pi OS (a recent 64-bit release is recommended).</li>
+          <li>Enable <strong>I²C</strong> in <code>raspi-config</code> → <em>Interface Options</em>.</li>
+          <li>Verify the board is detected with <code>i2cdetect -y 1</code> — you should see several I²C addresses.</li>
+        </ol>
+
+        <h2>Sense HAT resources</h2>
+        <ul>
+          <li><a href="https://www.raspberrypi.com/products/sense-hat/" target="_blank" rel="noopener noreferrer">Sense HAT product page</a></li>
+          <li><a href="https://www.raspberrypi.com/documentation/accessories/sense-hat.html" target="_blank" rel="noopener noreferrer">Sense HAT official documentation</a></li>
+          <li><a href="https://dev.to/igoriot/introduction-to-the-raspberry-pi-sense-hat-4lfg" target="_blank" rel="noopener noreferrer">Introduction to the Raspberry Pi Sense HAT (dev.to)</a></li>
+        </ul>
+
+        <h2>Raspberry Pi resources</h2>
+        <p>
+          The Sense HAT is useless without a Pi under it. If you're new to the platform, these are the
+          places to start:
+        </p>
+        <ul>
+          <li><a href="https://www.raspberrypi.com/" target="_blank" rel="noopener noreferrer">Raspberry Pi — official site</a></li>
+          <li><a href="https://www.raspberrypi.com/documentation/" target="_blank" rel="noopener noreferrer">Raspberry Pi documentation</a></li>
+          <li><a href="https://www.raspberrypi.com/software/" target="_blank" rel="noopener noreferrer">Raspberry Pi Imager — flash the OS to an SD card</a></li>
+          <li><a href="https://dev.to/igoriot/what-is-a-raspberry-pi-hat-1c8d" target="_blank" rel="noopener noreferrer">What is a Raspberry Pi HAT? (dev.to)</a></li>
+          <li><a href="https://forums.raspberrypi.com/" target="_blank" rel="noopener noreferrer">Raspberry Pi forums</a></li>
+        </ul>
+      </section>
+    </section>
+  </section>
+</article>

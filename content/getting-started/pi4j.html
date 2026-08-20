@@ -1,0 +1,53 @@
+---
+title: Pi4J
+description: The Pi4J library — accessing GPIO, I²C, SPI and other low-level interfaces on the Raspberry Pi from Java.
+layout: roq-default/default
+permalink: /getting-started/pi4j/
+bodyClass: post-page
+---
+
+<div class="post-back">
+  <a href="{site.url('/getting-started/')}" class="post-back-link">← Getting Started</a>
+  <a href="{site.url}" class="post-back-link">← Home</a>
+</div>
+
+<article class="article-page">
+  <section class="page-content">
+    <section class="wrap-content">
+      {#include partials/roq-default/page-header.html /}
+
+      <section class="content-prose">
+        <h2>What is Pi4J?</h2>
+        <p>
+          <a href="https://pi4j.com/" target="_blank" rel="noopener noreferrer">Pi4J</a> is a friendly
+          Java library for accessing GPIO, I²C, SPI, PWM and other low-level interfaces on the
+          Raspberry Pi. It lets you talk to hardware like the Sense HAT from a normal Java application,
+          without dropping down to native code or shelling out to Python.
+        </p>
+
+        <h2>The library at a glance</h2>
+        <ul>
+          <li>A <strong>Context</strong> is the entry point — you get one with <code>Pi4J.newAutoContext()</code>.</li>
+          <li>Providers plug into the context to expose GPIO, I²C, SPI, PWM and serial buses.</li>
+          <li>The current v4/v5 line uses the <strong>FFM</strong> plugin (Foreign Function &amp; Memory API), so no JNI build step is needed.</li>
+          <li>The <a href="https://github.com/Pi4J/pi4j-drivers" target="_blank" rel="noopener noreferrer">pi4j-drivers</a> project layers device-specific drivers on top of Pi4J — including the Sense HAT.</li>
+        </ul>
+
+        <h2>Docs and code</h2>
+        <ul>
+          <li><a href="https://pi4j.com/getting-started/" target="_blank" rel="noopener noreferrer">Pi4J — Getting Started</a></li>
+          <li><a href="https://pi4j.com/documentation/" target="_blank" rel="noopener noreferrer">Pi4J Documentation</a></li>
+          <li><a href="https://pi4j.com/examples/" target="_blank" rel="noopener noreferrer">Pi4J Examples</a></li>
+          <li><a href="https://github.com/Pi4J/pi4j-v2" target="_blank" rel="noopener noreferrer">Pi4J on GitHub</a></li>
+          <li><a href="https://github.com/Pi4J/pi4j-drivers" target="_blank" rel="noopener noreferrer">pi4j-drivers — device drivers, including Sense HAT</a></li>
+        </ul>
+
+        <h2>Community</h2>
+        <ul>
+          <li><a href="https://forum.pi4j.com/" target="_blank" rel="noopener noreferrer">Pi4J community forum</a></li>
+          <li><a href="https://x.com/pi4j" target="_blank" rel="noopener noreferrer">Pi4J on X</a></li>
+        </ul>
+      </section>
+    </section>
+  </section>
+</article>

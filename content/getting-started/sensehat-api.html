@@ -1,0 +1,111 @@
+---
+title: Sense HAT API
+description: The pi4j-drivers Sense HAT driver — the igfasouza fork used by this playground and the jar generator that publishes it.
+layout: roq-default/default
+permalink: /getting-started/sensehat-api/
+bodyClass: post-page
+---
+
+<div class="post-back">
+  <a href="{site.url('/getting-started/')}" class="post-back-link">← Getting Started</a>
+  <a href="{site.url}" class="post-back-link">← Home</a>
+</div>
+
+<article class="article-page">
+  <section class="page-content">
+    <section class="wrap-content">
+      {#include partials/roq-default/page-header.html /}
+
+      <section class="content-prose">
+        <h2>Where does the API live?</h2>
+        <p>
+          The Sense HAT driver lives in the
+          <a href="https://github.com/Pi4J/pi4j-drivers" target="_blank" rel="noopener noreferrer">pi4j-drivers</a>
+          repository — a collection of device drivers built on top of Pi4J. The class you'll spend most
+          of your time with is <code>com.pi4j.drivers.hat.raspberry.SenseHat</code>: it wraps the LED
+          matrix, joystick, environmental sensors and the IMU behind one object.
+        </p>
+
+        <h2>Why a fork?</h2>
+        <p>
+          Every example in this playground pulls the driver from my
+          <a href="https://github.com/igfasouza/pi4j-drivers/tree/igfasouza" target="_blank" rel="noopener noreferrer"><code>igfasouza</code> branch of pi4j-drivers</a>.
+          The fork carries a few extra helpers and version-detection fixes that haven't been merged
+          upstream yet — most notably it exposes both Sense HAT v1 and v2 through the same API. The
+          JBang scripts declare it as:
+        </p>
+<pre><code>//DEPS com.pi4j:pi4j-drivers-igfasouza:1.1.1-SNAPSHOT
+//REPOS mavencentral,mavenlocal,sonatype-snapshots=https://s01.oss.sonatype.org/content/repositories/snapshots/
+</code></pre>
+        <p>
+          To build the driver locally so JBang can find it, clone the fork and install it into your
+          local Maven repository:
+        </p>
+<pre><code>git clone -b igfasouza https://github.com/igfasouza/pi4j-drivers.git
+cd pi4j-drivers
+mvn install
+</code></pre>
+
+        <h2>sensehat-jar-generator</h2>
+        <p>
+          Building the driver from source works, but a lot of readers just want a ready-made jar.
+          <a href="https://github.com/igfasouza/sensehat-jar-generator" target="_blank" rel="noopener noreferrer">sensehat-jar-generator</a>
+          is a small companion project that packages the Sense HAT API from the
+          <code>igfasouza</code> fork into a standalone jar so you can drop it into any Java project —
+          Maven, Gradle, or a plain <code>-cp</code> command line — without having to build
+          <code>pi4j-drivers</code> yourself.
+        </p>
+        <p>
+          Use it when:
+        </p>
+        <ul>
+          <li>You're integrating the Sense HAT into an existing app and don't want a SNAPSHOT dependency in your build.</li>
+          <li>You need to hand a colleague or student a self-contained jar.</li>
+          <li>You're building a distributable — an installer, a container image, a school kit.</li>
+        </ul>
+
+        <h2>What the API covers</h2>
+        <ul>
+          <li><strong>LED matrix</strong> — <code>setPixel</code>, <code>setPixels</code>, <code>fill</code>, <code>clear</code>, <code>showLetter</code>, <code>showMessage</code>, rotation and flips.</li>
+          <li><strong>Environmental sensors</strong> — humidity, pressure and two temperature readings.</li>
+          <li><strong>IMU</strong> — raw accelerometer and gyroscope, plus derived orientation in degrees and radians.</li>
+          <li><strong>Magnetometer</strong> — compass heading and raw magnetic field vector.</li>
+          <li><strong>Joystick</strong> — polling, listener callbacks and blocking <code>waitForEvent</code>.</li>
+          <li><strong>Colour sensor</strong> (Sense HAT v2) — clear + RGB channels.</li>
+        </ul>
+        <p>
+          The <a href="{site.url('/posts/')}">projects in this playground</a> each exercise a small
+          slice of the API — start from any one of them and read outward.
+        </p>
+
+        <h2>Slimming things down with sensehat-jar-generator</h2>
+        <p>
+          The <code>pi4j-drivers-igfasouza</code> artifact used in the JBang preamble is convenient,
+          but it ships every driver the repository knows about — display controllers, ADCs, expanders,
+          things you don't need if the only board you care about is the Sense HAT. As an alternative,
+          you can grab the jar produced by
+          <a href="https://github.com/igfasouza/sensehat-jar-generator" target="_blank" rel="noopener noreferrer">sensehat-jar-generator</a>
+          and use <em>that</em> in place of the full dependency.
+        </p>
+        <p>
+          The public API is the same — same <code>SenseHat</code> class, same methods, same behaviour —
+          so any example on this site keeps working unchanged. The difference is on disk: the
+          generated jar contains only the classes needed for the Sense HAT, so you end up with a much
+          smaller artifact to ship, cache or bundle into a container image.
+        </p>
+        <p>
+          In a Maven or JBang setup you'd point at the generated jar instead of the SNAPSHOT
+          dependency, drop the sonatype-snapshots repository line, and everything else in your
+          <code>main</code> stays identical. Same result, smaller footprint.
+        </p>
+
+        <h2>Links</h2>
+        <ul>
+          <li><a href="https://github.com/Pi4J/pi4j-drivers" target="_blank" rel="noopener noreferrer">pi4j-drivers — upstream</a></li>
+          <li><a href="https://github.com/igfasouza/pi4j-drivers/tree/igfasouza" target="_blank" rel="noopener noreferrer">igfasouza fork of pi4j-drivers</a></li>
+          <li><a href="https://github.com/igfasouza/sensehat-jar-generator" target="_blank" rel="noopener noreferrer">sensehat-jar-generator</a></li>
+        </ul>
+      </section>
+    </section>
+  </section>
+</article>

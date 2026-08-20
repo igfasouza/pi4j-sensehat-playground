@@ -1,0 +1,72 @@
+---
+title: Astro Pi
+description: The programme that put Raspberry Pi computers and the Sense HAT on the International Space Station — and lets students run code on them.
+layout: roq-default/default
+permalink: /getting-started/astropi/
+bodyClass: post-page
+---
+
+<div class="post-back">
+  <a href="{site.url('/getting-started/')}" class="post-back-link">← Getting Started</a>
+  <a href="{site.url}" class="post-back-link">← Home</a>
+</div>
+
+<article class="article-page">
+  <section class="page-content">
+    <section class="wrap-content">
+      {#include partials/roq-default/page-header.html /}
+
+      <section class="content-prose">
+        <h2>What is Astro Pi?</h2>
+        <p>
+          <a href="https://astro-pi.org/" target="_blank" rel="noopener noreferrer">Astro Pi</a> is a
+          joint programme between the <strong>Raspberry Pi Foundation</strong> and the
+          <strong>European Space Agency (ESA)</strong>. It lets young people run their code on
+          Raspberry Pi computers aboard the International Space Station. The Sense HAT is the primary
+          piece of hardware they interact with — every mission is essentially "what interesting thing
+          can you do with this board 400 km above the Earth?".
+        </p>
+
+        <h2>The two missions</h2>
+        <ul>
+          <li>
+            <a href="https://astro-pi.org/mission-zero" target="_blank" rel="noopener noreferrer"><strong>Mission Zero</strong></a> —
+            a beginner-friendly path. Students write a short program (typically a Sense HAT LED
+            animation with a personalised message) that is guaranteed to run on the ISS for a fixed
+            time slot. No hardware required.
+          </li>
+          <li>
+            <a href="https://astro-pi.org/mission-space-lab" target="_blank" rel="noopener noreferrer"><strong>Mission Space Lab</strong></a> —
+            a full scientific experiment. Teams design an investigation, write code that runs for a
+            longer window on the ISS, receive their data back and produce a report.
+          </li>
+        </ul>
+
+        <h2>The Astro Pi units</h2>
+        <p>
+          The units on the ISS are Raspberry Pis inside a flight-certified aluminium case, running the
+          Sense HAT plus additional cameras and sensors. Two upgraded units — nicknamed
+          <em>Ed</em> and <em>Izzy</em> — have been on the station since 2021 and support
+          higher-resolution imagery and machine-learning workloads.
+        </p>
+
+        <h2>Where Java fits</h2>
+        <p>
+          The official Astro Pi programme runs on <strong>Python</strong>, using the
+          <code>sense-hat</code> library. Java isn't part of the flight image, but the API surfaces are
+          equivalent — most Astro Pi projects can be prototyped and taught in Java on the ground with
+          Pi4J and the examples in this playground, then translated to Python before submission.
+        </p>
+
+        <h2>Links</h2>
+        <ul>
+          <li><a href="https://astro-pi.org/" target="_blank" rel="noopener noreferrer">Astro Pi — home</a></li>
+          <li><a href="https://astro-pi.org/mission-zero" target="_blank" rel="noopener noreferrer">Mission Zero</a></li>
+          <li><a href="https://astro-pi.org/mission-space-lab" target="_blank" rel="noopener noreferrer">Mission Space Lab</a></li>
+          <li><a href="https://projects.raspberrypi.org/en/projects?hardware%5B%5D=sense-hat" target="_blank" rel="noopener noreferrer">Sense HAT projects on the Raspberry Pi Foundation site</a></li>
+          <li><a href="https://www.esa.int/Education/AstroPI" target="_blank" rel="noopener noreferrer">Astro Pi at the European Space Agency</a></li>
+        </ul>
+      </section>
+    </section>
+  </section>
+</article>

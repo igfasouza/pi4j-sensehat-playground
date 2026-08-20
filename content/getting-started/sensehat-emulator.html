@@ -1,0 +1,57 @@
+---
+title: Sense HAT Emulator
+description: Run and test Sense HAT code on your laptop, without a physical board.
+layout: roq-default/default
+permalink: /getting-started/sensehat-emulator/
+bodyClass: post-page
+---
+
+<div class="post-back">
+  <a href="{site.url('/getting-started/')}" class="post-back-link">← Getting Started</a>
+  <a href="{site.url}" class="post-back-link">← Home</a>
+</div>
+
+<article class="article-page">
+  <section class="page-content">
+    <section class="wrap-content">
+      {#include partials/roq-default/page-header.html /}
+
+      <section class="content-prose">
+        <h2>Why an emulator?</h2>
+        <p>
+          Not everyone learning Pi4J has a Raspberry Pi and a Sense HAT sitting next to their keyboard.
+          The <a href="https://github.com/igfasouza/sensehat-emulator" target="_blank" rel="noopener noreferrer">sensehat-emulator</a>
+          is a software stand-in for the physical board: your code calls the same
+          <code>SenseHat</code> API, but the LED matrix, joystick and sensors are rendered and
+          simulated on your development machine.
+        </p>
+
+        <h2>What you get</h2>
+        <ul>
+          <li>A visual 8×8 LED matrix that mirrors <code>setPixel</code>, <code>setPixels</code>, <code>fill</code>, <code>showLetter</code> and <code>showMessage</code> calls.</li>
+          <li>A simulated joystick — mapped to the keyboard so you can trigger up/down/left/right/center events.</li>
+          <li>Fake sensor readings for temperature, humidity, pressure and the IMU, so code paths that read sensors don't crash off-Pi.</li>
+        </ul>
+
+        <h2>How it fits with the playground</h2>
+        <p>
+          The emulator implements the same <code>SenseHat</code> surface used by every example on this
+          site. That means most of the <a href="{site.url('/posts/')}">projects</a> here can be run
+          against the emulator with only a swap of the runtime — useful for:
+        </p>
+        <ul>
+          <li>Trying an example before you buy the hardware.</li>
+          <li>Teaching a classroom where only one Pi is available.</li>
+          <li>Iterating on drawing code without redeploying to the Pi every save.</li>
+          <li>CI runs and smoke tests where a real board isn't available.</li>
+        </ul>
+
+        <h2>Links</h2>
+        <ul>
+          <li><a href="https://github.com/igfasouza/sensehat-emulator" target="_blank" rel="noopener noreferrer">sensehat-emulator on GitHub</a> — code, README and issue tracker.</li>
+          <li><a href="{site.url('/getting-started/sensehat-api/')}">Sense HAT API</a> — the surface the emulator implements.</li>
+        </ul>
+      </section>
+    </section>
+  </section>
+</article>
